@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cafe Sky | North Karachi</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #2b1609;
+        color: #fff;
+        line-height: 1.6;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+        min-height: 650px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background:
+            radial-gradient(circle at 50% 25%, rgba(255,205,110,.16), transparent 25%),
+            linear-gradient(135deg, #160b05, #4c260d 50%, #1e0d06);
+    }
+
+    .stars {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .stars span {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: #ffe7a3;
+        border-radius: 50%;
+        box-shadow: 0 0 12px 4px rgba(255,214,117,.7);
+        animation: glow 2.5s infinite alternate;
+    }
+
+    .stars span:nth-child(1) { left: 5%; top: 15%; }
+    .stars span:nth-child(2) { left: 15%; top: 25%; animation-delay: .5s; }
+    .stars span:nth-child(3) { left: 27%; top: 10%; animation-delay: 1s; }
+    .stars span:nth-child(4) { left: 40%; top: 20%; animation-delay: 1.5s; }
+    .stars span:nth-child(5) { left: 55%; top: 8%; animation-delay: .3s; }
+    .stars span:nth-child(6) { left: 67%; top: 24%; animation-delay: .9s; }
+    .stars span:nth-child(7) { left: 78%; top: 13%; animation-delay: 1.3s; }
+    .stars span:nth-child(8) { left: 91%; top: 28%; animation-delay: .7s; }
+    .stars span:nth-child(9) { left: 20%; top: 40%; animation-delay: 1.7s; }
+    .stars span:nth-child(10) { left: 84%; top: 42%; animation-delay: .2s; }
+
+    @keyframes glow {
+        from { opacity: .35; transform: scale(.8); }
+        to { opacity: 1; transform: scale(1.35); }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 30px;
+    }
+
+    .coffee-icon {
+        font-size: 65px;
+        margin-bottom: 5px;
+        filter: drop-shadow(0 0 10px rgba(255,200,100,.35));
+    }
+
+    .hero h1 {
+        font-family: Georgia, serif;
+        font-size: clamp(55px, 10vw, 100px);
+        letter-spacing: 7px;
+        color: #ffe4b0;
+        text-shadow: 0 5px 25px rgba(0,0,0,.5);
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+        letter-spacing: 5px;
+        color: #d8ad7d;
+        margin-top: -5px;
+        text-transform: uppercase;
+    }
+
+    .tagline {
+        margin: 25px auto;
+        max-width: 650px;
+        font-size: 18px;
+        color: #f4dfc4;
+    }
+
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-block;
+        text-decoration: none;
+        padding: 14px 27px;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: .3s;
+    }
+
+    .btn-primary {
+        background: #d59a55;
+        color: #241006;
+    }
+
+    .btn-primary:hover {
+        background: #f0bb78;
+        transform: translateY(-3px);
+    }
+
+    .btn-outline {
+        border: 1px solid #d59a55;
+        color: #f4d3a6;
+    }
+
+    .btn-outline:hover {
+        background: #d59a55;
+        color: #241006;
+        transform: translateY(-3px);
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(25,12,5,.96);
+        border-bottom: 1px solid rgba(218,166,100,.25);
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+        max-width: 1100px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        gap: 35px;
+        padding: 15px;
+    }
+
+    nav a {
+        color: #eac99e;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        transition: .3s;
+    }
+
+    nav a:hover {
+        color: #fff;
+    }
+
+    /* =========================
+       GENERAL
+    ========================= */
+
+    section {
+        padding: 80px 20px;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .section-title .small {
+        color: #c79661;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 13px;
+    }
+
+    .section-title h2 {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        color: #ffe0ad;
+        margin-top: 5px;
+    }
+
+    .section-title p {
+        color: #bfa58c;
+        max-width: 600px;
+        margin: 10px auto;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+        background: #351b0c;
+    }
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+        align-items: center;
+    }
+
+    .about-card {
+        background: linear-gradient(145deg, #4b260f, #2c1609);
+        border: 1px solid rgba(226,177,111,.2);
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: 0 15px 40px rgba(0,0,0,.2);
+    }
+
+    .about-card h3 {
+        color: #f0c183;
+        font-family: Georgia, serif;
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .about-card p {
+        color: #d0b9a0;
+        margin-bottom: 15px;
+    }
+
+    .rating {
+        color: #ffd16f;
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .info-list {
+        list-style: none;
+    }
+
+    .info-list li {
+        padding: 9px 0;
+        color: #dbc3a9;
+        border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .info-list li span {
+        margin-right: 8px;
+        color: #dba05e;
+    }
+
+    /* =========================
+       MENU
+    ========================= */
+
+    .menu-section {
+        background:
+            radial-gradient(circle at top right, rgba(177,112,44,.12), transparent 30%),
+            #241208;
+    }
+
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .menu-card {
+        background: rgba(73,38,16,.65);
+        border: 1px solid rgba(227,179,108,.17);
+        border-radius: 18px;
+        padding: 25px;
+        transition: .3s;
+    }
+
+    .menu-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(227,179,108,.5);
+        box-shadow: 0 15px 35px rgba(0,0,0,.25);
+    }
+
+    .menu-card h3 {
+        color: #f2c58d;
+        font-family: Georgia, serif;
+        font-size: 25px;
+        border-bottom: 1px solid rgba(220,168,99,.25);
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+    }
+
+    .menu-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 8px 0;
+        border-bottom: 1px dashed rgba(255,255,255,.08);
+    }
+
+    .menu-item:last-child {
+        border-bottom: none;
+    }
+
+    .item-name {
+        color: #e6d1b7;
+    }
+
+    .price {
+        color: #f1b969;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .featured {
+        color: #ffcf71;
+    }
+
+    .pizza-note {
+        color: #bca28a;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    /* =========================
+       FEATURES
+    ========================= */
+
+    .features {
+        background: #351b0c;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    .feature {
+        text-align: center;
+        background: #43220e;
+        border-radius: 16px;
+        padding: 25px 15px;
+        border: 1px solid rgba(230,180,110,.13);
+    }
+
+    .feature-icon {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .feature h4 {
+        color: #f1ca96;
+        margin-bottom: 5px;
+    }
+
+    .feature p {
+        color: #bda58d;
+        font-size: 13px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+        background: #1b0d06;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .contact-card {
+        background: linear-gradient(145deg,#43220e,#281208);
+        padding: 35px;
+        border-radius: 20px;
+        border: 1px solid rgba(226,177,111,.17);
+    }
+
+    .contact-card h3 {
+        font-family: Georgia, serif;
+        color: #f3ca94;
+        font-size: 27px;
+        margin-bottom: 20px;
+    }
+
+    .contact-row {
+        display: flex;
+        gap: 15px;
+        margin: 18px 0;
+        color: #d7c0a5;
+    }
+
+    .contact-row .icon {
+        font-size: 22px;
+        width: 30px;
+    }
+
+    .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(100,180,90,.12);
+        border: 1px solid rgba(100,180,90,.25);
+        color: #a8df9e;
+        padding: 8px 13px;
+        border-radius: 20px;
+        font-size: 13px;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #72c765;
+        box-shadow: 0 0 8px #72c765;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+        background: #100703;
+        text-align: center;
+        padding: 35px 20px;
+        color: #8d7661;
+    }
+
+    footer strong {
+        color: #d5aa75;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+        .nav-inner {
+            gap: 15px;
+            overflow-x: auto;
+            justify-content: flex-start;
+            white-space: nowrap;
+        }
+
+        .about-grid,
+        .contact-grid,
+        .menu-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .feature-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .hero {
+            min-height: 580px;
+        }
+
+        .hero h1 {
+            letter-spacing: 3px;
+        }
+
+        section {
+            padding: 60px 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .feature-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .feature {
+            padding: 18px 8px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+        }
+
+        .about-card,
+        .contact-card,
+        .menu-card {
+            padding: 22px;
+        }
+
+        .hero-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn {
+            width: 210px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+    <div class="stars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="hero-content">
+
+        <div class="coffee-icon">☕</div>
+
+        <h1>CAFE SKY</h1>
+
+        <div class="hero-subtitle">
+            Coffee • Food • Rooftop
+        </div>
+
+        <p class="tagline">
+            A casual rooftop cafe in North Karachi serving
+            coffee, parathas, snacks and delicious late-night food.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#menu" class="btn btn-primary">
+                View Menu
+            </a>
+
+            <a href="tel:+923212103217" class="btn btn-outline">
+                📞 Call Now
+            </a>
+        </div>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+    <div class="nav-inner">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#menu">MENU</a>
+        <a href="#features">AMENITIES</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+</nav>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="small">Welcome To</div>
+            <h2>Cafe Sky</h2>
+            <p>
+                Your casual rooftop cafe in North Karachi.
+            </p>
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-card">
+
+                <h3>About Cafe Sky</h3>
+
+                <div class="rating">
+                    ★★★★★ <span style="font-size:14px;color:#bda58d;">5.0 (6 reviews)</span>
+                </div>
+
+                <p>
+                    Cafe Sky is a casual cafe located at Ammara Mall,
+                    Nagan Chowrangi, North Karachi.
+                </p>
+
+                <p>
+                    Enjoy rooftop seating, coffee, halal food,
+                    small plates, vegetarian options and late-night food
+                    in a relaxed atmosphere.
+                </p>
+
+                <p>
+                    Perfect for solo dining, families and groups.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <h3>Good To Know</h3>
+
+                <ul class="info-list">
+
+                    <li>
+                        <span>✓</span> Takeout
+                    </li>
+
+                    <li>
+                        <span>✓</span> Dine-in
+                    </li>
+
+                    <li>
+                        <span>✓</span> Rooftop seating
+                    </li>
+
+                    <li>
+                        <span>✓</span> Halal food
+                    </li>
+
+                    <li>
+                        <span>✓</span> Vegetarian options
+                    </li>
+
+                    <li>
+                        <span>✓</span> Free Wi-Fi
+                    </li>
+
+                    <li>
+                        <span>✓</span> Family-friendly
+                    </li>
+
+                    <li>
+                        <span>✓</span> Groups welcome
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<section class="menu-section" id="menu">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="small">What We Serve</div>
+            <h2>Our Menu</h2>
+            <p>
+                Fresh drinks, tasty food and Cafe Sky favourites.
+            </p>
+        </div>
+
+
+        <div class="menu-grid">
+
+
+            <!-- BEVERAGES -->
+
+            <div class="menu-card">
+
+                <h3>☕ Chai & Coffee</h3>
+
+                <div class="menu-item">
+                    <span class="item-name">Doodh Patti</span>
+                    <span class="price">120</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Elaichi Chai</span>
+                    <span class="price">130</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Gur Chai</span>
+                    <span class="price">140</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Malai Chai</span>
+                    <span class="price">150</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name featured">★ Kashmiri Chai</span>
+                    <span class="price">200</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Sulemani Chai</span>
+                    <span class="price">80</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Coffee</span>
+                    <span class="price">180</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name featured">★ Matka Chai</span>
+                    <span class="price">200</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Green Tea</span>
+                    <span class="price">120</span>
+                </div>
+
+            </div>
+
+
+            <!-- PARATHAS -->
+
+            <div class="menu-card">
+
+                <h3>🥘 Parathas</h3>
+
+                <div class="menu-item">
+                    <span class="item-name">Lacha Paratha</span>
+                    <span class="price">70</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Aloo Paratha</span>
+                    <span class="price">150</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Aloo Chicken Paratha</span>
+                    <span class="price">250</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Aloo Cheese Paratha</span>
+                    <span class="price">250</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Chicken Paratha</span>
+                    <span class="price">250</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Chicken Cheese Paratha</span>
+                    <span class="price">350</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Chocolate Paratha</span>
+                    <span class="price">250</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Cheese Paratha</span>
+                    <span class="price">200</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name featured">★ Pizza Cheese Paratha</span>
+                    <span class="price">250</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Cream Paratha</span>
+                    <span class="price">200</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name featured">★ Shahi Paratha</span>
+                    <span class="price">400</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Malai Boti Paratha</span>
+                    <span class="price">300</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name featured">★ Arabian Paratha</span>
+                    <span class="price">350</span>
+                </div>
+
+            </div>
+
+
+            <!-- PIZZA -->
+
+            <div class="menu-card">
+
+                <h3>🍕 Pizza</h3>
+
+                <div class="pizza-note">
+                    Available in Small, Medium & Large
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Fajita</span>
+                    <span class="price">350 / 550 / 750</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Pepperoni</span>
+                    <span class="price">350 / 550 / 750</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">B.B.Q</span>
+                    <span class="price">350 / 550 / 750</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Creamy Tikka</span>
+                    <span class="price">350 / 550 / 750</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Malai Boti</span>
+                    <span class="price">350 / 550 / 750</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Creamy Fajita</span>
+                    <span class="price">350 / 550 / 750</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Cheese Lovers</span>
+                    <span class="price">350 / 550 / 750</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Chicken Tikka</span>
+                    <span class="price">350 / 550 / 750</span>
+                </div>
+
+                <div class="pizza-note" style="margin-top:12px;">
+                    Small / Medium / Large
+                </div>
+
+            </div>
+
+
+            <!-- POTATO CHIPS -->
+
+            <div class="menu-card">
+
+                <h3>🍟 Potato Chips</h3>
+
+                <div class="menu-item">
+                    <span class="item-name">Spicy Fries</span>
+                    <span class="price">150</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Mayo Fries</span>
+                    <span class="price">200</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">B.B.Q Fries</span>
+                    <span class="price">250</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Cheese Fries</span>
+                    <span class="price">300</span>
+                </div>
+
+            </div>
+
+
+            <!-- COLD BEVERAGES -->
+
+            <div class="menu-card">
+
+                <h3>🥤 Cold Beverages</h3>
+
+                <div class="menu-item">
+                    <span class="item-name">Water (Small)</span>
+                    <span class="price">50</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Water (Large)</span>
+                    <span class="price">100</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Drink (345ml)</span>
+                    <span class="price">80</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Drink (1 ltr)</span>
+                    <span class="price">150</span>
+                </div>
+
+            </div>
+
+
+            <!-- OTHERS -->
+
+            <div class="menu-card">
+
+                <h3>🍢 Others</h3>
+
+                <div class="menu-item">
+                    <span class="item-name">Anda</span>
+                    <span class="price">60</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Shommy Kebab</span>
+                    <span class="price">80</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Malai</span>
+                    <span class="price">100</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Extra Cheese</span>
+                    <span class="price">50</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     AMENITIES
+========================= -->
+
+<section class="features" id="features">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="small">Cafe Sky</div>
+            <h2>Why Visit Us?</h2>
+            <p>
+                Everything you need for a comfortable cafe experience.
+            </p>
+        </div>
+
+
+        <div class="feature-grid">
+
+            <div class="feature">
+                <div class="feature-icon">🌃</div>
+                <h4>Rooftop</h4>
+                <p>Enjoy our rooftop seating.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">☕</div>
+                <h4>Coffee</h4>
+                <p>Fresh coffee and chai.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🍽️</div>
+                <h4>Halal Food</h4>
+                <p>Halal food options available.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">📶</div>
+                <h4>Free Wi-Fi</h4>
+                <p>Stay connected while dining.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">👨‍👩‍👧</div>
+                <h4>Family Friendly</h4>
+                <p>Comfortable for families.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">👥</div>
+                <h4>Groups</h4>
+                <p>Great for groups and friends.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">💳</div>
+                <h4>NFC Payments</h4>
+                <p>Mobile payments supported.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">♿</div>
+                <h4>Restroom</h4>
+                <p>Gender-neutral restroom available.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="small">Come Visit</div>
+            <h2>Contact Cafe Sky</h2>
+        </div>
+
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+
+                <h3>📍 Find Us</h3>
+
+                <div class="contact-row">
+                    <div class="icon">📍</div>
+                    <div>
+                        1 Nagan Chowrangi Flyover,<br>
+                        Sector 11C-3, Sector 11 C 1,<br>
+                        North Karachi, Karachi,<br>
+                        75280, Pakistan
+                    </div>
+                </div>
+
+                <div class="contact-row">
+                    <div class="icon">🏢</div>
+                    <div>
+                        Located in:<br>
+                        <strong style="color:#e8c08e;">
+                            Ammara Mall Nagan
+                        </strong>
+                    </div>
+                </div>
+
+                <a
+                    class="btn btn-primary"
+                    target="_blank"
+                    href="https://www.google.com/maps/search/?api=1&query=1%20Nagan%20Chowrangi%20Flyover%20North%20Karachi%20Karachi%20Pakistan">
+                    📍 Get Directions
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <h3>📞 Get In Touch</h3>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    Opens at 7 PM
+                </div>
+
+                <div class="contact-row">
+                    <div class="icon">📞</div>
+                    <div>
+                        <strong style="color:#edc58f;">
+                            +92 321 2103217
+                        </strong>
+                    </div>
+                </div>
+
+                <div class="contact-row">
+                    <div class="icon">🍽️</div>
+                    <div>
+                        Takeout & Dine-in available
+                    </div>
+                </div>
+
+                <div class="contact-row">
+                    <div class="icon">🌙</div>
+                    <div>
+                        Late-night food available
+                    </div>
+                </div>
+
+                <br>
+
+                <a
+                    href="tel:+923212103217"
+                    class="btn btn-primary">
+                    📞 Call Cafe Sky
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        <strong>CAFE SKY</strong>
+    </p>
+
+    <p>
+        Rooftop Cafe • North Karachi
+    </p>
+
+    <p style="margin-top:10px;">
+        © 2026 Cafe Sky. All rights reserved.
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     SMALL JAVASCRIPT
+========================= -->
+
+<script>
+
+    // Smooth navigation effect
+    document.querySelectorAll('nav a').forEach(function(link) {
+
+        link.addEventListener('click', function(e) {
+
+            const target = document.querySelector(
+                this.getAttribute('href')
+            );
+
+            if (target) {
+                e.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
